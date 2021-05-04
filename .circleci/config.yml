@@ -28,6 +28,8 @@ jobs:
             mkdir /usr/bin/platforms
             ln -s /our/local/libqxcb.so /usr/bin/platforms/libqxcb.so
             python -m pytest guitest.py
+          environment:
+            QT_DEBUG_PLUGINS: 1
       - store_test_results:
           path: test-results
       - store_artifacts:
