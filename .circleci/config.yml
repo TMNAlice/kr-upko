@@ -26,6 +26,7 @@ jobs:
       - run:
           name: Running tests
           command: |
+            activate test-env
             python -m pytest guitest.py
       - store_test_results:
           path: test-results
