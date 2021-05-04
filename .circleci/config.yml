@@ -23,7 +23,7 @@ jobs:
             conda install -y python=3.6 setuptools pytest
             apt update
             apt install -y libsm6 libxext6 ffmpeg libfontconfig1 libxrender1 libgl1-mesa-glx
-            conda install -y -c conda-forge opencv=4.3.* pyqt=5.9.* qt=5.9.*
+            conda install -y -c conda-forge pyqt=5.9.*
             python -m pip install pytest-qt
             mkdir /usr/bin/platforms
             ln -s /our/local/libqxcb.so /usr/bin/platforms/libqxcb.so
