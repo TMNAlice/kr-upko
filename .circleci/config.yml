@@ -22,6 +22,9 @@ jobs:
             conda update -y conda
             conda install python=3.8 setuptools pytest pyqt=5.* qt=5.*
             python -m pip install pytest-qt
+            apt update
+            apt install -y python3-opencv
+            python -m pip install opencv-python
             python -m pytest guitest.py
       - store_test_results:
           path: test-results
