@@ -21,7 +21,7 @@ jobs:
             export PATH="$HOME/miniconda/bin:$PATH"
             conda update -y conda
             conda create -n test-env python=3.8 setuptools pytest pyqt=5.* qt=5.*
-            conda activate test-env
+            activate test-env
             python -m pip install pytest-qt
       - run:
           name: Running tests
