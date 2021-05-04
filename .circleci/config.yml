@@ -20,11 +20,11 @@ jobs:
           command: |
             export PATH="$HOME/miniconda/bin:$PATH"
             conda update -y conda
-            conda install python=3.8 setuptools pytest pyqt=5.* qt=5.*
+            conda install -y python=3.8 setuptools pytest pyqt=5.* qt=5.*
             python -m pip install pytest-qt
             apt update
             apt install -y libsm6 libxext6 ffmpeg libfontconfig1 libxrender1 libgl1-mesa-glx
-            conda install -c conda-forge opencv
+            conda install -c -y conda-forge opencv
             python -m pytest guitest.py
       - store_test_results:
           path: test-results
