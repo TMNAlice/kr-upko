@@ -3,8 +3,8 @@ jobs:
   build:
     docker:
       - image: ubuntu:bionic
-    environment:
-      PYTHON_VERSION: 3.8.10
+    # environment:
+    #   PYTHON_VERSION: 3.8.10
     steps:
       - checkout
       - run:
@@ -23,9 +23,6 @@ jobs:
             conda create -n test-env python=3.8 setuptools pytest pyqt=5.* qt=5.*
             activate test-env
             python -m pip install pytest-qt
-      - run:
-          name: Running tests
-          command: |
             export PATH="$HOME/miniconda/bin:$PATH"
             activate test-env
             python -m pytest guitest.py
