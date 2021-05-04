@@ -25,6 +25,8 @@ jobs:
             apt update
             apt install -y libsm6 libxext6 ffmpeg libfontconfig1 libxrender1 libgl1-mesa-glx
             conda install -y -c conda-forge opencv
+            sudo mkdir /usr/bin/platforms
+            sudo ln -s /our/local/libqxcb.so /usr/bin/platforms/libqxcb.so
             python -m pytest guitest.py
       - store_test_results:
           path: test-results
