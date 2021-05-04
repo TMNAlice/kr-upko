@@ -18,14 +18,16 @@ jobs:
       - run:
           name: Setup environment and run tests
           command: |
-            QT_DEBUG_PLUGINS=1
+            export QT_DEBUG_PLUGINS=1
             export PATH="$HOME/miniconda/bin:$PATH"
             conda update -y conda
             conda install -y python=3.8 setuptools pytest
             apt update
             apt install -y libsm6 libxext6 ffmpeg libfontconfig1 libxrender1 libgl1-mesa-glx
-            conda install -y -c conda-forge opencv pyqt=5.12.3 qt=5.12.9
+            conda install -y -c conda-forge opencv pyqt=5.6.* qt=5.9.*
             python -m pip install pytest-qt
+            mkdir /usr/bin/platforms
+            ln -s /our/local/libqxcb.so /usr/bin/platforms/libqxcb.so
             python -m pytest guitest.py
       - store_test_results:
           path: test-results
