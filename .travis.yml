@@ -12,6 +12,5 @@ install:
   - conda create -q -n test-environment python=3.8 setuptools pytest pyqt=5.* qt=5.*
   - conda activate test-environment
   - python -m pip install pytest-qt
-  - python -m pip install .
 script:
   - "py.test -s guitest.py"
