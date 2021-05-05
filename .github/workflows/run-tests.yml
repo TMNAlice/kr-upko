@@ -5,12 +5,14 @@ on: [push, workflow_dispatch]
 jobs:
   build:
 
+    env:
+        QT_DEBUG_PLUGINS: 1
+
     runs-on: windows-latest
     defaults:
       run:
         shell: cmd /C CALL {0}
-      env:
-        QT_DEBUG_PLUGINS: 1
+
 
     # strategy:
     #   matrix:
