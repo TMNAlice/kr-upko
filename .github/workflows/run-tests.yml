@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        shell: cmd /C CALL {0}
+        shell: bash -l {0}
 
 
     # strategy:
