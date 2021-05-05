@@ -3,7 +3,7 @@ name: run-tests
 on: [push, workflow_dispatch]
 
 jobs:
-  build:
+  tests:
 
     env:
         QT_DEBUG_PLUGINS: 1
@@ -24,8 +24,8 @@ jobs:
       name: Prepare env
       with:
         activate-environment: testing-env
+        miniconda-version: "4.9.2"
         architecture: x86
-        miniconda-version: "latest"
         # python-version: ${{ matrix.python-version }}
         channels: "conda-forge"
         allow-softlinks: true
