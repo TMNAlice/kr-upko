@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.6]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
       name: Prepare env
       with:
         activate-environment: testing-env
-        architecture: x64
+        architecture: x86
         miniconda-version: "latest"
         python-version: ${{ matrix.python-version }}
         channels: "conda-forge"
@@ -31,7 +31,8 @@ jobs:
     - name: Install dependencies
       run: |
         conda activate testing-env
-        conda install -y python=3.6 setuptools pytest pyqt=5.9.*
+        conda install -y python=3.7.7 setuptools pytest pyqt=5.9.*
+        conda install -y hypothesis pytest-arraydiff pytest-astropy pytest-astropy-header pytest-doctestplus pytest-openfiles pytest-remotedata
         python -m pip install pytest-qt
 
     - name: Run tests
