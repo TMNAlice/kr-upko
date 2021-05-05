@@ -5,14 +5,16 @@ on: [push, workflow_dispatch]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     defaults:
       run:
-        shell: bash -l {0}
+        shell: cmd /C CALL {0}
+      env:
+        QT_DEBUG_PLUGINS: 1
 
-    strategy:
-      matrix:
-        python-version: [3.7]
+    # strategy:
+    #   matrix:
+    #     python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -22,7 +24,7 @@ jobs:
         activate-environment: testing-env
         architecture: x64
         miniconda-version: "latest"
-        python-version: ${{ matrix.python-version }}
+        # python-version: ${{ matrix.python-version }}
         channels: "conda-forge"
         allow-softlinks: true
         channel-priority: "flexible"
