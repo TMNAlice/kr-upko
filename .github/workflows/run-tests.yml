@@ -24,7 +24,7 @@ jobs:
       name: Prepare env
       with:
         activate-environment: testing-env
-        miniconda-version: "4.9.2"
+        miniconda-version: "latest"
         architecture: x64
         # python-version: ${{ matrix.python-version }}
         channels: "conda-forge"
